@@ -10,12 +10,27 @@ public class Main {
         ArrayList<Integer> coldDays = new ArrayList<>();
         ArrayList<Integer> hotDays = new ArrayList<>();
         
+        int heatWave = 0;
+        boolean consecutiveHeat = false;
         for (Integer num : nums) {
+            
+            if (!(num >= 30)) {
+                consecutiveHeat = false;
+                heatWave = 0;
+            }
+
+            if (num >= 30 && consecutiveHeat) {
+                heatWave++;
+            } if (num >= 30 && !(consecutiveHeat)) {
+                heatWave++;
+                consecutiveHeat = true;
+            }
+
             if (num < 10) {
                 coldDays.add(num);
             } else if (num > 35) {
                 coldDays.add(num);
-            }
+            } 
         }
         System.out.print("Dias muito frios: ");
         for (int day : coldDays) {
@@ -28,5 +43,6 @@ public class Main {
         }
         System.out.println("Maior temperatura: " + Collections.max(nums));
         System.out.println("Menor temperatura: " + Collections.min(nums));
+        if (heatWave >= 3) System.out.println("Alerta de onda de calor!");
     }
 }
