@@ -16,9 +16,9 @@ public class Main {
     }
 
     System.out.println("Números Pares:");
-    nums.stream().filter(n -> n % 2 == 0).forEach(System.out::println);
+    nums.stream().filter(n -> n % 2 == 0).forEach(n -> System.out.println(n));
     System.out.println("Números Impares:");
-    nums.stream().filter(n -> n % 2 != 0).forEach(System.out::println);
+    nums.stream().filter(n -> n % 2 != 0).forEach(n -> System.out.println(n));
     sc.close();
   }
 }

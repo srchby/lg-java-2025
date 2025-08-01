@@ -1,6 +1,7 @@
 package Main.java;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Collections;
 
@@ -13,12 +14,10 @@ public class Main {
         System.out.println("Insira nota:");
 
         for (int i = 0; i < 5; i++) {
-            int num = Integer.parseInt(scan.nextLine());
-            numbers.add(num);
+            numbers.add(Integer.parseInt(scan.nextLine()));
         }
 
-        double sum = numbers.stream().mapToDouble(n -> n).sum();
-        double average = sum / numbers.size();
+        double average = numbers.stream().mapToDouble(n -> n).reduce(0, (a, b) -> a + b) / numbers.size();
         System.out.println(average);
     }
 }
