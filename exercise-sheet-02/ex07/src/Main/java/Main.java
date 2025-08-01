@@ -11,8 +11,7 @@ public class Main {
     ArrayList<Integer> nums = new ArrayList<>();
 
     for (int i = 0; i < 7; i++) {
-      int num = scan.nextInt();
-      nums.add(num);
+      nums.add(scan.nextInt());
     }
 
     System.out.println(Collections.max(nums));
