@@ -7,11 +7,11 @@ public class Main {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		ArrayList<Integer> nums = new ArrayList<>();
+		ArrayList<Double> nums = new ArrayList<>();
 		System.out.println("Insira notas (-1 para parar): ");
 		while (true) {
-			int num = sc.nextInt();
-			if (num == -1) {
+			double num = sc.nextDouble();
+			if (num == -1.0) {
 				break;
 			}
 			nums.add(num);
@@ -21,11 +21,11 @@ public class Main {
 		sc.close();
 	}
 
-	public static double mediaNotas(ArrayList<Integer> nums) {
+	public static double mediaNotas(ArrayList<Double> nums) {
 		if (nums.isEmpty()) {
 			return 0.0;
 		}
-		return nums.stream().mapToDouble(Integer::doubleValue).reduce(0.0, (a, b) -> a + b)
+		return nums.stream().mapToDouble(Double::doubleValue).reduce(0.0, (a, b) -> a + b)
 				/ nums.size();
 	}
 }
